@@ -2,41 +2,27 @@ import 'dart:convert';
 import 'package:ono/signUp.dart';
 import 'package:ono/forgotPassword.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter/material.dart';
-// import 'package:plano/settings.dart';
 
-// import 'dart:convert';
+import 'package:flutter/material.dart';
 
 // Define a data model for the Login credentials
 class LoginCredentials {
-  final String email;
-  final String password;
+  final String userEmail;
+  final String userPassword;
 
   LoginCredentials({
-    required this.email,
-    required this.password,
+    required this.userEmail,
+    required this.userPassword,
   });
 
   // Serialize the data model into JSON format
   Map<String, dynamic> toJson() {
     return {
-      'email': email,
-      'password': password,
+      'userEmail': userEmail,
+      'userPassword': userPassword,
     };
   }
 }
-
-// class Login extends StatelessWidget {
-//   const Login({super.key});
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-
-//       home: LoginPage(),
-//     );
-//   }
-// }
 
 class LoginPage extends StatefulWidget {
   @override
@@ -63,8 +49,8 @@ class _LoginPageState extends State<LoginPage> {
           centerTitle: true,
           backgroundColor: Colors.red,
           titleTextStyle: const TextStyle(
-            fontSize: 18,
-            // fontWeight: FontWeight.normal,
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
         ),
@@ -144,18 +130,20 @@ class _LoginPageState extends State<LoginPage> {
                     if (_formKey.currentState!.validate()) {
                       // Perform Login
                       // For demonstration, print email and password
-                      print('Email: ${_emailController.text}');
-                      print('Password: ${_passwordController.text}');
+                      print('userEmail: ${_emailController.text}');
+                      print('userPassword: ${_passwordController.text}');
 
                       LoginCredentials credentials = LoginCredentials(
-                        email: _emailController.text,
-                        password: _passwordController.text,
+                        userEmail: _emailController.text,
+                        userPassword: _passwordController.text,
                       );
+                      //  print(credentials.userEmail);
+                      //  print( credentials.userPassword);
                       String jsonData = jsonEncode(credentials.toJson());
                       print('JSON Data: $jsonData');
                       http
                           .post(
-                        Uri.parse('https://your-api-endpoint.com/Login'),
+                        Uri.parse("http://10.0.2.2:4040/userLogin"),
                         headers: <String, String>{
                           'Content-Type': 'application/json; charset=UTF-8',
                         },
@@ -164,7 +152,11 @@ class _LoginPageState extends State<LoginPage> {
                           .then((response) {
                         if (response.statusCode == 200) {
                           // Login successful
-                          print('Login successful');
+                          var res = json.decode(response.body);
+                          debugPrint(res);
+                          debugPrint(response.body);
+
+                          // print('Login successful');
                         } else {
                           // Login failed
                           print('Login failed');

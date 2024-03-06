@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:ono/dashboard.dart';
+import 'package:ono/DASH/dashboard.dart';
 
 void main() {
   runApp(MyApp());
@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           Center(
@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Positioned(
             bottom: 20, // Adjust the position as needed
-            left: MediaQuery.of(context).size.width / 4 -
+            left: MediaQuery.of(context).size.width / 3 -
                 25, // Adjust the position to center horizontally
             child: SafeArea(
               child: Column(

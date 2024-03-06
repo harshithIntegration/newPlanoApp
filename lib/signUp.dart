@@ -29,10 +29,10 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
         title: Text('SignUp'),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.red.shade900,
         titleTextStyle: TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.bold,
+          fontSize: 25,
+          fontWeight: FontWeight.normal,
           color: Colors.white,
         ),
       ),
@@ -264,7 +264,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     },
                     child: Text('SignUp'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
+                      backgroundColor: Colors.red.shade900,
                       foregroundColor: Colors.white,
                     ),
                   ),

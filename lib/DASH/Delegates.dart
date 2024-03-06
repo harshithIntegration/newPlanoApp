@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Speakerspage extends StatefulWidget {
-  const Speakerspage({Key? key}) : super(key: key);
+class Delegatespage extends StatefulWidget {
+  const Delegatespage({Key? key}) : super(key: key);
 
   @override
-  State<Speakerspage> createState() => _SpeakerspageState();
+  State<Delegatespage> createState() => _DelegatespageState();
 }
 
-class _SpeakerspageState extends State<Speakerspage> {
+class _DelegatespageState extends State<Delegatespage> {
   Widget quoteTemplate(Quote quote) {
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
@@ -42,11 +42,16 @@ class _SpeakerspageState extends State<Speakerspage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      // backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('Speakers'),
+        title: Text(
+          'Delegates',
+          style: TextStyle(
+            color: Colors.white, // Change the text color here
+          ),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.red.shade900,
       ),
     );
   }

@@ -21,7 +21,12 @@ class _UserPageState extends State<UserPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User Details'),
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(239, 173, 7, 7),
+        title: Text(
+          'User Details',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       body: Center(
         child: FutureBuilder<List<User>>(
@@ -42,9 +47,9 @@ class _UserPageState extends State<UserPage> {
                           Text('Email: ${user.userEmail}'),
                           Text('Country: ${user.userCountry}'),
                           Text('State: ${user.userState}'),
-                          Text('City: ${user.userCity}'),
+                          Text('City: ${user.usercity}'),
                           Text('Mobile: ${user.userMobile}'),
-                          Text('Gender: ${user.userGender}'),
+                          Text('Gender: ${user.userGendar}'),
                           Text('Position: ${user.userPosition}'),
                           Text('Department: ${user.userDepartment}'),
                           Text('Sub Department: ${user.userSubDepartment}'),

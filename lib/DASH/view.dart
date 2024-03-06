@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Delegatespage extends StatefulWidget {
-  const Delegatespage({Key? key}) : super(key: key);
+class Viewpage extends StatefulWidget {
+  const Viewpage({Key? key}) : super(key: key);
 
   @override
-  State<Delegatespage> createState() => _DelegatespageState();
+  State<Viewpage> createState() => _ViewpageState();
 }
 
-class _DelegatespageState extends State<Delegatespage> {
-  Widget quoteTemplate(Quote quote) {
+class _ViewpageState extends State<Viewpage> {
+  Widget quoteTemplate(quote) {
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
       child: Padding(
@@ -44,17 +44,15 @@ class _DelegatespageState extends State<Delegatespage> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('Delegates'),
+        title: Text(
+          'User View',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.red.shade900,
       ),
     );
   }
-}
-
-class Quote {
-  String text;
-  String author;
-
-  Quote({required this.text, required this.author});
 }
