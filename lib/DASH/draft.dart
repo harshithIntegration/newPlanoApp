@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Ebadgepage extends StatefulWidget {
-  const Ebadgepage({Key? key}) : super(key: key);
+class Draftpage extends StatefulWidget {
+  const Draftpage({Key? key}) : super(key: key);
 
   @override
-  State<Ebadgepage> createState() => _EbadgepageState();
+  State<Draftpage> createState() => _DraftpageState();
 }
 
-class _EbadgepageState extends State<Ebadgepage> {
+class _DraftpageState extends State<Draftpage> {
   Widget quoteTemplate(Quote quote) {
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
@@ -44,9 +44,12 @@ class _EbadgepageState extends State<Ebadgepage> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('E-Badge'),
+        title: Text(
+          'Drafts',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.red.shade900,
       ),
     );
   }

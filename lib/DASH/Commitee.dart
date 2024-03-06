@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Contactpage extends StatefulWidget {
-  const Contactpage({Key? key}) : super(key: key);
+class Commiteepage extends StatefulWidget {
+  const Commiteepage({Key? key}) : super(key: key);
 
   @override
-  State<Contactpage> createState() => _ContactpageState();
+  State<Commiteepage> createState() => _CommiteepageState();
 }
 
-class _ContactpageState extends State<Contactpage> {
-  Widget quoteTemplate(Quote quote) {
+class _CommiteepageState extends State<Commiteepage> {
+  Widget quoteTemplate(quote) {
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
       child: Padding(
@@ -42,19 +42,17 @@ class _ContactpageState extends State<Contactpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      // backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('Contact Us'),
+        title: Text(
+          'Commitee',
+          style: TextStyle(
+            color: Colors.white, // Change the text color here
+          ),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.red.shade900,
       ),
     );
   }
-}
-
-class Quote {
-  String text;
-  String author;
-
-  Quote({required this.text, required this.author});
 }
