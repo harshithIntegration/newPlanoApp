@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:ono/Admin/newUser.dart';
 import 'package:ono/DASH/view.dart';
 import 'package:ono/DASH/dashboard.dart';
 import 'package:ono/DASH/morescreen.dart';
@@ -103,7 +104,13 @@ class _AdminpageState extends State<Adminpage> {
                     title: 'NEW USER',
                     iconData: CupertinoIcons.plus_app,
                     background: Colors.green,
-                    onTap: () {},
+                    onTap: () {
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => RegisterPage()),
+                      ); 
+                    },
                   ),
                   ItemDashboard(
                     title: 'SESSIONS',

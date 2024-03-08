@@ -7,10 +7,10 @@ class User {
   final String userEmail;
   final String userCountry;
   final String userState;
-  final String usercity;
+  final String userCity;
   final String userPassword;
   final int userMobile;
-  final String userGendar;
+  final String userGender;
   final String userPosition;
   final String userDepartment;
   final String userSubDepartment;
@@ -23,10 +23,10 @@ class User {
     required this.userEmail,
     required this.userCountry,
     required this.userState,
-    required this.usercity,
+    required this.userCity,
     required this.userPassword,
     required this.userMobile,
-    required this.userGendar,
+    required this.userGender,
     required this.userPosition,
     required this.userDepartment,
     required this.userSubDepartment,
@@ -41,10 +41,10 @@ class User {
       userEmail: json['userEmail'],
       userCountry: json['userCountry'],
       userState: json['userState'],
-      usercity: json['usercity'],
+      userCity: json['userCity'],
       userPassword: json['userPassword'],
       userMobile: json['userMobile'],
-      userGendar: json['userGendar'],
+      userGender: json['userGender'],
       userPosition: json['userPosition'],
       userDepartment: json['userDepartment'],
       userSubDepartment: json['userSubDepartment'],
@@ -54,10 +54,12 @@ class User {
   }
 
   static Future<List<User>> fetchAllUsers() async {
-    final response =
-        await http.post(Uri.parse('http://10.0.2.2:4040/userDetails'));
+    final response = await http
+        .post(Uri.parse('https://quantumparadigm.in/qpapp/userdetails.json'));
+    print(response);
     if (response.statusCode == 200) {
       Iterable list = json.decode(response.body);
+      print(list);
       return list.map((model) => User.fromJson(model)).toList();
     } else {
       throw Exception('Failed to load users');

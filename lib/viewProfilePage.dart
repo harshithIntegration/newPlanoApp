@@ -41,7 +41,7 @@ class _viewProfilePageState extends State<viewProfilePage> {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (snapshot.hasData) {
             // Assuming there's only one user fetched
-            User user = snapshot.data![1];
+            User user = snapshot.data![0];
             return SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(20),
@@ -53,7 +53,7 @@ class _viewProfilePageState extends State<viewProfilePage> {
                     itemProfile(
                         'Phone', user.userMobile.toString(), Icons.phone),
                     const SizedBox(height: 10),
-                    itemProfile('Address', user.usercity, Icons.location_on),
+                    itemProfile('Address', user.userCity, Icons.location_on),
                     const SizedBox(height: 10),
                     itemProfile('Email', user.userEmail, Icons.email),
                     const SizedBox(
@@ -69,14 +69,14 @@ class _viewProfilePageState extends State<viewProfilePage> {
                               builder: (context) => EditviewProfilePage(
                                 name: user.userName,
                                 phone: user.userMobile.toString(),
-                                address: user.usercity,
+                                address: user.userCity,
                                 email: user.userEmail,
                                 onProfileUpdated:
                                     (name, phone, address, email) {
                                   setState(() {
                                     user.userName = name;
                                     user.userMobile = int.parse(phone);
-                                    user.usercity = address;
+                                    user.userCity = address;
                                     user.userEmail = email;
                                   });
                                 },
