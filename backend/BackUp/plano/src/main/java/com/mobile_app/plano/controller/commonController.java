@@ -3,8 +3,9 @@ package com.mobile_app.plano.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,26 +22,33 @@ public class commonController {
 	@Autowired
 	commonService commonService;
 	
-	@PostMapping("/userLogin")
-	public Object userLogin(@RequestBody user u,HttpSession httpSession) {
-		return commonService.userLogin(u,httpSession);
-	}
-	@PostMapping("/userSignUp")
-	public String userSignUp(@RequestBody user u,HttpSession httpSession) {
-		return commonService.userSignUp(u, httpSession);
-	}
-	@PostMapping("/userDetails")
-	public List<user> userDetails(){
-		return commonService.userDetails();
-	}
-	@PostMapping("/userEditProfile")
-	public user userEditProfile(@RequestBody user u,HttpSession httpSession){
-		System.out.println(u);
-		return commonService.userEditProfile(u,httpSession);
-	}
-	@GetMapping("/userLogout")
-	public String userLogout(HttpSession httpSession) {
-		httpSession.invalidate();
-		return "Logout";
-	}
+	 @PostMapping("/userLogin")
+	    public ResponseEntity<Object> userLogin(@RequestBody user u, HttpSession httpSession) {
+	        Object responseData = commonService.userLogin(u, httpSession);
+	        return new ResponseEntity<>(responseData, HttpStatus.OK);
+	    }
+
+	    @PostMapping("/userSignUp")
+	    public ResponseEntity<String> userSignUp(@RequestBody user u, HttpSession httpSession) {
+	        String responseString = commonService.userSignUp(u, httpSession);
+	        return new ResponseEntity<>(responseString, HttpStatus.OK);
+	    }
+
+	    @PostMapping("/userDetails")
+	    public ResponseEntity<List<user>> userDetails() {
+	        List<user> userList = commonService.userDetails();
+	        return new ResponseEntity<>(userList, HttpStatus.OK);
+	    }
+
+	    @PostMapping("/userEditProfile")
+	    public ResponseEntity<user> userEditProfile(@RequestBody user u, HttpSession httpSession) {
+	        user updatedUser = commonService.userEditProfile(u, httpSession);
+	        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+	    }
+
+	    @GetMapping("/userLogout")
+	    public ResponseEntity<String> userLogout(HttpSession httpSession) {
+	        httpSession.invalidate();
+	        return new ResponseEntity<>("Logout", HttpStatus.OK);
+	    }
 }

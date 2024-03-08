@@ -7,10 +7,10 @@ class User {
   late final String userEmail;
   final String userCountry;
   final String userState;
-  late final String usercity;
+  late final String userCity;
   final String userPassword;
   late final int userMobile;
-  final String userGendar;
+  final String userGender;
   final String userDepartment;
   final String userSubDepartment;
   final String userAddress;
@@ -22,10 +22,10 @@ class User {
     required this.userEmail,
     required this.userCountry,
     required this.userState,
-    required this.usercity,
+    required this.userCity,
     required this.userPassword,
     required this.userMobile,
-    required this.userGendar,
+    required this.userGender,
     required this.userDepartment,
     required this.userSubDepartment,
     required this.userAddress,
@@ -39,10 +39,10 @@ class User {
       userEmail: json['userEmail'],
       userCountry: json['userCountry'],
       userState: json['userState'],
-      usercity: json['usercity'],
+      userCity: json['userCity'],
       userPassword: json['userPassword'],
       userMobile: json['userMobile'],
-      userGendar: json['userGendar'],
+      userGender: json['userGender'],
       userDepartment: json['userDepartment'],
       userSubDepartment: json['userSubDepartment'],
       userAddress: json['userAddress'],
