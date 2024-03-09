@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Draftpage extends StatefulWidget {
-  const Draftpage({Key? key}) : super(key: key);
+class Feedbackpage extends StatefulWidget {
+  const Feedbackpage({Key? key}) : super(key: key);
 
   @override
-  State<Draftpage> createState() => _DraftpageState();
+  State<Feedbackpage> createState() => _FeedbackpageState();
 }
 
-class _DraftpageState extends State<Draftpage> {
+class _FeedbackpageState extends State<Feedbackpage> {
   Widget quoteTemplate(Quote quote) {
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
@@ -40,16 +40,22 @@ class _DraftpageState extends State<Draftpage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        title: Text('Drafts'),
-        centerTitle: true,
-        backgroundColor: Colors.red,
+Widget build(BuildContext context) {
+  return Scaffold(
+    // backgroundColor: Colors.grey[200],
+    appBar: AppBar(
+      title: Text(
+        'Feedback',
+        style: TextStyle(
+          color: Colors.white, // Change the text color here
+        ),
       ),
-    );
-  }
+      centerTitle: true,
+      backgroundColor: Colors.red.shade900,
+    ),
+  );
+}
+
 }
 
 class Quote {

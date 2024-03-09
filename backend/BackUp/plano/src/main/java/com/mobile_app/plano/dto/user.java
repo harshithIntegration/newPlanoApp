@@ -20,13 +20,14 @@ public class user {
 	private String userEmail;
 	private String userCountry;
 	private String userState;
-	private String usercity;
+	private String userCity;
 	private String userPassword;
 	private long userMobile;
-	private String userGendar;
+	private String userGender;
 	private String userPosition;
 	private String userDepartment;
 	private String userSubDepartment;
 	private String userAddress;
 	private String userPhotoLink;
+	private boolean userStatus;
 }
