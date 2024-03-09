@@ -1,19 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ono/AboutUsScreen.dart';
-import 'package:ono/Commitee.dart';
-import 'package:ono/Contact.dart';
-import 'package:ono/Delegates.dart';
-import 'package:ono/Document.dart';
-import 'package:ono/Ebadge.dart';
-import 'package:ono/Exhibitors.dart';
-import 'package:ono/Feedback.dart';
-import 'package:ono/Mettings.dart';
-import 'package:ono/Mom.dart';
-import 'package:ono/Speakers.dart';
-import 'package:ono/Venue.dart';
+import 'package:ono/DASH/AboutUsScreen.dart';
+import 'package:ono/DASH/Commitee.dart';
+import 'package:ono/DASH/Contact.dart';
+import 'package:ono/DASH/Delegates.dart';
+import 'package:ono/DASH/Document.dart';
+import 'package:ono/DASH/Ebadge.dart';
+import 'package:ono/DASH/Exhibitors.dart';
+import 'package:ono/DASH/Feedback.dart';
+import 'package:ono/DASH/Mettings.dart';
+import 'package:ono/DASH/Mom.dart';
+import 'package:ono/DASH/Speakers.dart';
+import 'package:ono/DASH/Venue.dart';
+import 'package:ono/DASH/dashboard.dart';
+import 'package:ono/DASH/documentscreen.dart';
 import 'package:ono/basicPage.dart';
-import 'package:ono/documentscreen.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class MoreScreen extends StatefulWidget {
 }
 
 class _MoreScreenState extends State<MoreScreen> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -33,8 +34,8 @@ class _MoreScreenState extends State<MoreScreen> {
     });
     setState(() {
       _selectedIndex = index;
-      if (_selectedIndex == 1) {
-        _navigateToMorePage(context);
+      if (_selectedIndex == 0) {
+        _navigateToDashboardPage(context);
       }
     });
   }
@@ -46,24 +47,31 @@ class _MoreScreenState extends State<MoreScreen> {
     );
   }
 
-  void _navigateToMorePage(BuildContext context) {
+  void _navigateToDashboardPage(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MoreScreen()),
+      MaterialPageRoute(builder: (context) => dashboard()),
     );
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
-        title: const Text('More'),
+        title: Text(
+          'More',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.red.shade900,
       ),
       body: ListView(
         padding: const EdgeInsets.all(0),
         children: [
+          SizedBox(height: 20),
           Container(
-            color: Colors.red,
+            color: Colors.red.shade900,
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               decoration: const BoxDecoration(
@@ -231,7 +239,8 @@ class _MoreScreenState extends State<MoreScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.red.shade900,
+        unselectedItemColor: Colors.red.shade900,
         onTap: _onItemTapped,
       ),
     );

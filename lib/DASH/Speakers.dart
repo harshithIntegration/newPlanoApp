@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Statpage extends StatefulWidget {
-  const Statpage({Key? key}) : super(key: key);
+class Speakerspage extends StatefulWidget {
+  const Speakerspage({Key? key}) : super(key: key);
 
   @override
-  State<Statpage> createState() => _StatpageState();
+  State<Speakerspage> createState() => _SpeakerspageState();
 }
 
-class _StatpageState extends State<Statpage> {
+class _SpeakerspageState extends State<Speakerspage> {
   Widget quoteTemplate(Quote quote) {
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
@@ -20,7 +20,7 @@ class _StatpageState extends State<Statpage> {
               quote.text,
               style: TextStyle(
                 fontSize: 18.0,
-                color: Colors.white,
+                color: Colors.grey[800],
               ),
             ),
             SizedBox(
@@ -30,7 +30,7 @@ class _StatpageState extends State<Statpage> {
               quote.author,
               style: TextStyle(
                 fontSize: 14.0,
-                color: Colors.white,
+                color: Colors.grey[600],
               ),
             ),
           ],
@@ -40,16 +40,22 @@ class _StatpageState extends State<Statpage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text('Contents & Stats'),
-        centerTitle: true,
-        backgroundColor: Colors.red,
+Widget build(BuildContext context) {
+  return Scaffold(
+    // backgroundColor: Colors.grey[200],
+    appBar: AppBar(
+      title: Text(
+        'Speakers',
+        style: TextStyle(
+          color: Colors.white, // Change the text color here
+        ),
       ),
-    );
-  }
+      centerTitle: true,
+      backgroundColor: Colors.red.shade900,
+    ),
+  );
+}
+
 }
 
 class Quote {

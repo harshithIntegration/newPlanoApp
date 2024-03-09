@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Mettingpage extends StatefulWidget {
-  const Mettingpage({Key? key}) : super(key: key);
+class Mompage extends StatefulWidget {
+  const Mompage({Key? key}) : super(key: key);
 
   @override
-  State<Mettingpage> createState() => _MettingpageState();
+  State<Mompage> createState() => _MompageState();
 }
 
-class _MettingpageState extends State<Mettingpage> {
+class _MompageState extends State<Mompage> {
   Widget quoteTemplate(Quote quote) {
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
@@ -40,16 +40,22 @@ class _MettingpageState extends State<Mettingpage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        title: Text('Mettings'),
-        centerTitle: true,
-        backgroundColor: Colors.red,
+Widget build(BuildContext context) {
+  return Scaffold(
+    // backgroundColor: Colors.grey[200],
+    appBar: AppBar(
+      title: Text(
+        'MOM',
+        style: TextStyle(
+          color: Colors.white, // Change the text color here
+        ),
       ),
-    );
-  }
+      centerTitle: true,
+      backgroundColor: Colors.red.shade900,
+    ),
+  );
+}
+
 }
 
 class Quote {

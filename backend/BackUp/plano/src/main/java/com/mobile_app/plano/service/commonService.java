@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.ui.ModelMap;
 
 import com.mobile_app.plano.dao.commonDao;
 import com.mobile_app.plano.dto.user;
@@ -64,8 +63,8 @@ public class commonService {
 		if(u.getUserMobile()!=0) {
 		userEdit.setUserMobile(u.getUserMobile());
 		}
-		if(u.getUserGendar()!=null) {
-		userEdit.setUserGendar(u.getUserGendar());
+		if(u.getUserGender()!=null) {
+		userEdit.setUserGender(u.getUserGender());
 		}
 		if(u.getUserAddress()!=null) {
 		userEdit.setUserAddress(u.getUserAddress());

@@ -3,15 +3,14 @@ import 'package:http/http.dart' as http;
 
 class User {
   final int userId;
-  final String userName;
-  final String userEmail;
+  late final String userName;
+  late final String userEmail;
   final String userCountry;
   final String userState;
-  final String userCity;
+  late final String userCity;
   final String userPassword;
-  final int userMobile;
+  late final int userMobile;
   final String userGender;
-  final String userPosition;
   final String userDepartment;
   final String userSubDepartment;
   final String userAddress;
@@ -27,7 +26,6 @@ class User {
     required this.userPassword,
     required this.userMobile,
     required this.userGender,
-    required this.userPosition,
     required this.userDepartment,
     required this.userSubDepartment,
     required this.userAddress,
@@ -45,7 +43,6 @@ class User {
       userPassword: json['userPassword'],
       userMobile: json['userMobile'],
       userGender: json['userGender'],
-      userPosition: json['userPosition'],
       userDepartment: json['userDepartment'],
       userSubDepartment: json['userSubDepartment'],
       userAddress: json['userAddress'],
@@ -54,9 +51,9 @@ class User {
   }
 
   static Future<List<User>> fetchAllUsers() async {
-    final response = await http
-        .post(Uri.parse('https://quantumparadigm.in/qpapp/userdetails.json'));
-    print(response);
+    final response =
+        await http.post(Uri.parse('http://10.0.2.2:4040/userDetails'));
+
     if (response.statusCode == 200) {
       Iterable list = json.decode(response.body);
       print(list);

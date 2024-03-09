@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Mompage extends StatefulWidget {
-  const Mompage({Key? key}) : super(key: key);
+class Statpage extends StatefulWidget {
+  const Statpage({Key? key}) : super(key: key);
 
   @override
-  State<Mompage> createState() => _MompageState();
+  State<Statpage> createState() => _StatpageState();
 }
 
-class _MompageState extends State<Mompage> {
+class _StatpageState extends State<Statpage> {
   Widget quoteTemplate(Quote quote) {
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
@@ -20,7 +20,7 @@ class _MompageState extends State<Mompage> {
               quote.text,
               style: TextStyle(
                 fontSize: 18.0,
-                color: Colors.grey[800],
+                color: Colors.white,
               ),
             ),
             SizedBox(
@@ -30,7 +30,7 @@ class _MompageState extends State<Mompage> {
               quote.author,
               style: TextStyle(
                 fontSize: 14.0,
-                color: Colors.grey[600],
+                color: Colors.white,
               ),
             ),
           ],
@@ -42,11 +42,14 @@ class _MompageState extends State<Mompage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('MOM'),
+        title: Text(
+          'Contents & Stats',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.red.shade900,
       ),
     );
   }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Feedbackpage extends StatefulWidget {
-  const Feedbackpage({Key? key}) : super(key: key);
+class Bookmarkspage extends StatefulWidget {
+  const Bookmarkspage({Key? key}) : super(key: key);
 
   @override
-  State<Feedbackpage> createState() => _FeedbackpageState();
+  State<Bookmarkspage> createState() => _BookmarkspageState();
 }
 
-class _FeedbackpageState extends State<Feedbackpage> {
-  Widget quoteTemplate(Quote quote) {
+class _BookmarkspageState extends State<Bookmarkspage> {
+  Widget quoteTemplate(quote) {
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
       child: Padding(
@@ -44,17 +44,13 @@ class _FeedbackpageState extends State<Feedbackpage> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('Feedback'),
+        title: Text(
+          'Bookmarks',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.red.shade900,
       ),
     );
   }
-}
-
-class Quote {
-  String text;
-  String author;
-
-  Quote({required this.text, required this.author});
 }

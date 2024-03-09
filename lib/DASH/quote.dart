@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Venuepage extends StatefulWidget {
-  const Venuepage({Key? key}) : super(key: key);
+class Messagepage extends StatefulWidget {
+  const Messagepage({Key? key}) : super(key: key);
 
   @override
-  State<Venuepage> createState() => _VenuepageState();
+  State<Messagepage> createState() => _MessagepageState();
 }
 
-class _VenuepageState extends State<Venuepage> {
+class _MessagepageState extends State<Messagepage> {
   Widget quoteTemplate(Quote quote) {
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
@@ -20,7 +20,7 @@ class _VenuepageState extends State<Venuepage> {
               quote.text,
               style: TextStyle(
                 fontSize: 18.0,
-                color: Colors.grey[800],
+                color: Colors.white,
               ),
             ),
             SizedBox(
@@ -44,9 +44,12 @@ class _VenuepageState extends State<Venuepage> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('Venue'),
+        title: Text(
+          'Messages',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.red.shade900,
       ),
     );
   }
